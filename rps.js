@@ -1,4 +1,8 @@
 //function getComputerChoice
+const options = ["rock", "paper", "scissors"];
+const random = Math.floor(Math.random() * options.length);
+console.log(random, options[random]);
+
 //this function assigns a random value of rock,paper,or scissors to the Computer each time
 //input playerSelection (prompt user to select a choice and save this); needs to be case insensitive
 //compare the computerSelection to the playerSelection 

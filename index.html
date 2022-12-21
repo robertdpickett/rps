@@ -7,6 +7,86 @@
     <title>Document</title>
 </head>
 <body>
-   <script type="game/javascript" src="rps.js"></script> 
+   <script>
+  //this function assigns a random value of rock,paper,or scissors to the Computer each time
+    let playerScore = 0;
+    let computerScore = 0;
+    let ties = 0;
+
+    function getComputerChoice() {
+        let random = Math.random();
+        if (random <= 0.333) {
+            return "rock";
+        }
+        else if (random >= 0.666) {
+            return "paper";
+        }
+        else {
+            return "scissors";
+        }
+    }
+    
+    //input playerSelection (prompt user to select a choice and save this); needs to be case insensitive
+
+function playRound (playerSelection, computerSelection) {
+    if (playerSelection === computerSelection) {
+        return tie;
+    }
+    
+    if (playerSelection === 'paper' && computerSelection === 'rock') {
+        return playerWinRound;
+    }
+    if (playerSelection === 'rock' && computerSelection === 'scissors') {
+        return playerWinRound;
+    }
+    if (playerSelection === 'scissors' && computerSelection === 'paper') {
+        return playerWinRound;
+    }
+    else {
+        return computerWinRound;
+    }
+}
+
+let playerWinRound = "You win this round!"
+let computerWinRound = "Computer wins round!"
+let tie = "It's a tie!"
+let playerWin = "Player Wins!"
+let computerWin = "Computer Wins"
+
+//write a function game() to call the playROund function and inclue a loop function
+
+for (let i = 0; i < 5; i++) {
+   let playerSelection = prompt("Select your choice!").toLowerCase();
+   const computerSelection = getComputerChoice();
+   let result = playRound(playerSelection, computerSelection);
+   console.log(result);
+   if (result === playerWinRound){
+    playerScore++;
+   }
+   else if (result === tie) {
+    ties++; }
+   else { 
+    computerScore++;
+   }
+   console.log("The score is Player " +playerScore, " to Computer ", +computerScore );
+
+   if (playerScore > computerScore) {
+        console.log(playerWin);
+        ;
+    }
+    else if (computerScore > playerScore) {
+        console.log(computerWin);
+    }
+    else {
+        console.log(tie);
+    }
+
+}
+
+    
+
+
+
+</script>
 </body>
 </html>
